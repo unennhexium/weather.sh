@@ -208,7 +208,7 @@ while true; do
             # Temperature
             ####################################################################
             tempinc[$i]=$(echo $data | jq -r .list[$i].main.temp | tr '\n' ' ')
-            temperature[$i]=$tempinc[$i]
+            temperature[$i]=${tempinc[$i]}
             if  [ "$degreeCharacter" = "f" ]; then
                 temperature[$i]=$(echo "scale=2; 32+1.8*${tempinc[$i]}" | bc)
             fi
